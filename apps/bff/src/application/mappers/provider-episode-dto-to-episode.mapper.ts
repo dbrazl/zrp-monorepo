@@ -1,7 +1,7 @@
 import { ProviderEpisodeDto } from '@/application/dtos/inputs/provider-episode.dto.js';
 import { Episode } from '@/domain/data-structures/types/episode.js';
 
-export class ProviderEpisodeToEpisodeMapper {
+export class ProviderEpisodeDtoToEpisodeMapper {
   public static map(episodes: ProviderEpisodeDto[]): Episode[] {
     return episodes.map((episode) => ({
       id: episode.id,
