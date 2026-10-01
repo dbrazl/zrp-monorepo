@@ -1,4 +1,4 @@
-export type EpisodeDto = {
+export type Episode = {
   id: number;
   name: string;
   episode: string;
