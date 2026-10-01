@@ -1,0 +1,42 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "description": "Web App: Characters from the Rick and Morty episode",
+  "author": "Daniel Braz <daniel.braz@vyox.io>",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.21.0",
+    "yarn": ">=1.22.22"
+  },
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "prod": "next start -p 3001",
+    "build": "next build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "test:debug": "vitest --inspect-brk --no-file-parallelism",
+    "lint": "eslint",
+    "format": "prettier --write \"src/**/*.{tsx,ts}\""
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^5.0.3",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "jsdom": "^30.1.1",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  }
+}

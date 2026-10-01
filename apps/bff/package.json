@@ -4,7 +4,7 @@
   "description": "BFF API: Characters from the Rick and Morty episode",
   "author": "Daniel Braz <daniel.braz@vyox.io>",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "type": "module",
   "engines": {
     "node": ">=24.21.0",

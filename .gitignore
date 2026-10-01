@@ -4,6 +4,8 @@ node_modules
 # Build
 dist
 build
+.next
+out
 
 # Typescript cache
 *.tsbuildinfo
@@ -18,9 +20,12 @@ coverage
 # IDE
 .vscode
 
-# Envs
+# Security
 .env
 .env.*
+next-env.d.ts
+.DS_Store
+*.pem
 
 # Temp directory
 .temp
@@ -28,3 +33,7 @@ coverage
 
 # Monorepo
 .turbo
+
+# Debug
+yarn-debug.log*
+yarn-error.log*
