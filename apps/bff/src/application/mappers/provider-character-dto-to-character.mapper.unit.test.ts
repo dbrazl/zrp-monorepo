@@ -1,14 +1,14 @@
-import { CharacterFromEpisodeDto } from '@/application/dtos/inputs/character-from-episode.dto.js';
-import { CharacterFromEpisodeDtoToCharacterMapper } from '@/application/mappers/character-from-episode-dto-to-character.mapper.js';
+import { ProviderCharacterDto } from '@/application/dtos/inputs/provider-character.dto.js';
+import { ProviderCharacterDtoToCharacterMapper } from '@/application/mappers/provider-character-dto-to-character.mapper.js';
 
-describe('CharacterFromEpisodeDtoToCharacterMapper', () => {
+describe('ProviderCharacterDtoToCharacterMapper', () => {
   describe('map', () => {
     it('should return an empty array when there are no characters', () => {
       // Arrange
-      const characters: CharacterFromEpisodeDto[] = [];
+      const characters: ProviderCharacterDto[] = [];
 
       // Act
-      const result = CharacterFromEpisodeDtoToCharacterMapper.map(characters);
+      const result = ProviderCharacterDtoToCharacterMapper.map(characters);
 
       // Assert
       expect(result).toEqual([]);
@@ -16,7 +16,7 @@ describe('CharacterFromEpisodeDtoToCharacterMapper', () => {
 
     it('should map characters from episode DTOs to characters', () => {
       // Arrange
-      const characters: CharacterFromEpisodeDto[] = [
+      const characters: ProviderCharacterDto[] = [
         {
           id: 1,
           name: 'Rick Sanchez',
@@ -24,7 +24,10 @@ describe('CharacterFromEpisodeDtoToCharacterMapper', () => {
           species: 'Human',
           type: '',
           gender: 'Male',
-          origin: 'Earth (C-137)',
+          origin: {
+            name: 'Earth',
+            url: 'https://rickandmortyapi.com/api/location/1',
+          },
           location: {
             name: 'Citadel of Ricks',
             url: 'https://rickandmortyapi.com/api/location/3',
@@ -41,7 +44,10 @@ describe('CharacterFromEpisodeDtoToCharacterMapper', () => {
           species: 'Human',
           type: '',
           gender: 'Male',
-          origin: 'unknown',
+          origin: {
+            name: 'Earth',
+            url: 'https://rickandmortyapi.com/api/location/1',
+          },
           location: {
             name: 'Earth (Replacement Dimension)',
             url: 'https://rickandmortyapi.com/api/location/20',
@@ -54,7 +60,7 @@ describe('CharacterFromEpisodeDtoToCharacterMapper', () => {
       ];
 
       // Act
-      const result = CharacterFromEpisodeDtoToCharacterMapper.map(characters);
+      const result = ProviderCharacterDtoToCharacterMapper.map(characters);
 
       // Assert
       expect(result).toEqual([

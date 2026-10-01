@@ -1,8 +1,8 @@
-import { CharacterFromEpisodeDto } from '@/application/dtos/inputs/character-from-episode.dto.js';
+import { ProviderCharacterDto } from '@/application/dtos/inputs/provider-character.dto.js';
 import { ProviderEpisodeDto } from '@/application/dtos/inputs/provider-episode.dto.js';
 import { ISitcom } from '@/application/ports/services/sitcom.port.js';
 import { EpisodeRickAndMortyDto } from '@/infrastructure/dtos/episode.rick-and-morty.dto.js';
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export class SitcomRickAndMortyAdapter implements ISitcom {
   private readonly HOST = 'https://rickandmortyapi.com/api';
@@ -29,12 +29,14 @@ export class SitcomRickAndMortyAdapter implements ISitcom {
     ];
   }
 
-  public async getAllCharactersOfAnEpisode(
+  public async getCharacters(
     charactersIds: string[],
-  ): Promise<CharacterFromEpisodeDto[]> {
-    const response = await axios.get<CharacterFromEpisodeDto[]>(
-      `${this.HOST}/character/${charactersIds.join(',')}`,
-    );
-    return response.data;
+  ): Promise<ProviderCharacterDto[]> {
+    const response = await axios.get<
+      ProviderCharacterDto[] | ProviderCharacterDto
+    >(`${this.HOST}/character/${charactersIds.join(',')}`);
+
+    const { data } = response;
+    return Array.isArray(data) ? data : [data];
   }
 }

@@ -1,10 +1,8 @@
 import { Character } from '@/domain/data-structures/types/character.js';
-import { CharacterFromEpisodeDto } from '@/application/dtos/inputs/character-from-episode.dto.js';
+import { ProviderCharacterDto } from '@/application/dtos/inputs/provider-character.dto.js';
 
-export class CharacterFromEpisodeDtoToCharacterMapper {
-  public static map(
-    charactersEpisodes: CharacterFromEpisodeDto[],
-  ): Character[] {
+export class ProviderCharacterDtoToCharacterMapper {
+  public static map(charactersEpisodes: ProviderCharacterDto[]): Character[] {
     return charactersEpisodes.map((character) => ({
       id: character.id,
       name: character.name,

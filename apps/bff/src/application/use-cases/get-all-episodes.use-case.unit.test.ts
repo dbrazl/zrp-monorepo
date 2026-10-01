@@ -1,5 +1,8 @@
 import { ProviderEpisodeDto } from '@/application/dtos/inputs/provider-episode.dto.js';
-import { AbstractSitcom } from '@/application/ports/services/sitcom.port.js';
+import {
+  AbstractSitcom,
+  ISitcom,
+} from '@/application/ports/services/sitcom.port.js';
 import { GetAllEpisodesUseCase } from '@/application/use-cases/get-all-episodes.use-case.js';
 import { ProviderEpisodeDtoToEpisodeMapper } from '@/application/mappers/provider-episode-dto-to-episode.mapper.js';
 import { EpisodesToSeasonEpisodesDtoMapper } from '@/application/mappers/episodes-to-season-episodes-dto.mapper.js';
@@ -9,15 +12,14 @@ import { Mocked } from 'vitest';
 
 describe('GetAllEpisodesUseCase', () => {
   let useCase: GetAllEpisodesUseCase;
-  let sitcom: Mocked<AbstractSitcom>;
+  let sitcom: Mocked<Pick<AbstractSitcom, 'getAllEpisodes'>>;
 
   beforeEach(() => {
     vi.clearAllMocks();
     sitcom = {
       getAllEpisodes: vi.fn(),
-      getAllCharactersOfAnEpisode: vi.fn(),
     };
-    useCase = new GetAllEpisodesUseCase(sitcom);
+    useCase = new GetAllEpisodesUseCase(sitcom as unknown as ISitcom);
   });
 
   afterEach(() => {

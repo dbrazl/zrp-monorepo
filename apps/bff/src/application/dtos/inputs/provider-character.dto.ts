@@ -6,14 +6,14 @@ type Location = {
   url: string;
 };
 
-export type CharacterFromEpisodeDto = {
+export type ProviderCharacterDto = {
   id: number;
   name: string;
   status: Status;
   species: string;
   type: string;
   gender: Gender;
-  origin: string;
+  origin: Location;
   location: Location;
   image: string;
   episode: string[];
