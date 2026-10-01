@@ -1,4 +1,4 @@
-import { EpisodeDto } from '@/application/dtos/inputs/episode.dto.js';
+import { ProviderEpisodeDto } from '@/application/dtos/inputs/provider-episode.dto.js';
 
 type Info = {
   count: number;
@@ -9,5 +9,5 @@ type Info = {
 
 export type EpisodeRickAndMortyDto = {
   info: Info;
-  results: EpisodeDto[];
+  results: ProviderEpisodeDto[];
 };

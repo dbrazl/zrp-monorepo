@@ -1,4 +1,4 @@
-export type EpisodeDto = {
+export type ProviderEpisodeDto = {
   id: number;
   name: string;
   air_date: string;
