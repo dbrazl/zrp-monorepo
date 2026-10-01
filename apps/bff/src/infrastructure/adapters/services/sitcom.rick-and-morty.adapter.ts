@@ -1,3 +1,4 @@
+import { CharacterFromEpisodeDto } from '@/application/dtos/inputs/character-from-episode.dto.js';
 import { ProviderEpisodeDto } from '@/application/dtos/inputs/provider-episode.dto.js';
 import { ISitcom } from '@/application/ports/services/sitcom.port.js';
 import { EpisodeRickAndMortyDto } from '@/infrastructure/dtos/episode.rick-and-morty.dto.js';
@@ -26,5 +27,14 @@ export class SitcomRickAndMortyAdapter implements ISitcom {
       ...firstPage.results,
       ...remainingResponses.flatMap((response) => response.data.results),
     ];
+  }
+
+  public async getAllCharactersOfAnEpisode(
+    charactersIds: string[],
+  ): Promise<CharacterFromEpisodeDto[]> {
+    const response = await axios.get<CharacterFromEpisodeDto[]>(
+      `${this.HOST}/character/${charactersIds.join(',')}`,
+    );
+    return response.data;
   }
 }

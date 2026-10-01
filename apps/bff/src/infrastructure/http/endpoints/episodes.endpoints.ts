@@ -4,7 +4,7 @@ import { SeasonEpisodesDto } from '@/application/dtos/outputs/season-episode.dto
 
 @Controller('/episodes')
 export class EpisodesEndpoints {
-  constructor(private readonly controller: EpisodesController) { }
+  constructor(private readonly controller: EpisodesController) {}
 
   @Get()
   public async getAllEpisodes(): Promise<SeasonEpisodesDto[]> {

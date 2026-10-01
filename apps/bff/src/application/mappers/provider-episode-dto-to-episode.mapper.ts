@@ -23,11 +23,11 @@ export class ProviderEpisodeDtoToEpisodeMapper {
   }
 
   private static getCharactersIds(characters: string[]): string[] {
-    return characters.map(
-      character => {
-        const [_, id] = character.split('https://rickandmortyapi.com/api/character/');
-        return id;
-      }
-    );
+    return characters.map((character) => {
+      const [_, id] = character.split(
+        'https://rickandmortyapi.com/api/character/',
+      );
+      return id;
+    });
   }
 }

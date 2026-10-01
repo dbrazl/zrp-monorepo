@@ -15,6 +15,7 @@ describe('GetAllEpisodesUseCase', () => {
     vi.clearAllMocks();
     sitcom = {
       getAllEpisodes: vi.fn(),
+      getAllCharactersOfAnEpisode: vi.fn(),
     };
     useCase = new GetAllEpisodesUseCase(sitcom);
   });
