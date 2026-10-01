@@ -7,13 +7,13 @@
 
 This repository is a monorepo for the web and BFF applications. These applications fetch characters from the animated series *Rick and Morty* by episode and display information about them to users.
 
-## Project setup
+## Apps setup
 
 ```bash
 $ yarn install
 ```
 
-## Run the project
+## Run the apps
 
 **Development**
 ```bash
@@ -31,7 +31,7 @@ $ yarn run prod
 $ yarn run build
 ```
 
-## Run tests
+## Run apps tests
 
 **Unit tests**
 ```bash
@@ -43,7 +43,7 @@ $ yarn run test
 $ yarn run test:cov
 ```
 
-## Lint and format apps
+## Lint and format the apps
 
 **Lint**
 ```bash
