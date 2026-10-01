@@ -18,7 +18,7 @@ describe('SitcomRickAndMortyAdapter', () => {
   describe('getAllEpisodes', () => {
     it('should return all episodes from Rick and Morty API', async () => {
       // Arrange
-      const apiResponse: EpisodeRickAndMortyDto = {
+      const firstResponse: EpisodeRickAndMortyDto = {
         info: {
           count: 51,
           pages: 3,
@@ -41,19 +41,85 @@ describe('SitcomRickAndMortyAdapter', () => {
         ],
       };
 
-      mockedAxios.get.mockResolvedValue({
-        data: apiResponse,
-      } as AxiosResponse<EpisodeRickAndMortyDto>);
+      const secondResponse: EpisodeRickAndMortyDto = {
+        info: {
+          count: 51,
+          pages: 3,
+          next: 'https://rickandmortyapi.com/api/episode?page=3',
+          prev: 'https://rickandmortyapi.com/api/episode?page=1',
+        },
+        results: [
+          {
+            id: 21,
+            name: 'The Wedding Squanchers',
+            air_date: 'October 4, 2015',
+            episode: 'S02E10',
+            characters: [
+              'https://rickandmortyapi.com/api/character/1',
+              'https://rickandmortyapi.com/api/character/2',
+            ],
+            url: 'https://rickandmortyapi.com/api/episode/21',
+            created: '2017-11-10T12:56:33.798Z',
+          },
+        ],
+      };
+
+      const thirdResponse: EpisodeRickAndMortyDto = {
+        info: {
+          count: 51,
+          pages: 3,
+          next: null,
+          prev: 'https://rickandmortyapi.com/api/episode?page=2',
+        },
+        results: [
+          {
+            id: 41,
+            name: 'Star Mort: Rickturn of the Jerri',
+            air_date: 'May 31, 2020',
+            episode: 'S04E10',
+            characters: [
+              'https://rickandmortyapi.com/api/character/1',
+              'https://rickandmortyapi.com/api/character/2',
+            ],
+            url: 'https://rickandmortyapi.com/api/episode/41',
+            created: '2017-11-10T12:56:33.798Z',
+          },
+        ],
+      };
+
+      mockedAxios.get
+        .mockResolvedValueOnce({
+          data: firstResponse,
+        } as AxiosResponse<EpisodeRickAndMortyDto>)
+        .mockResolvedValueOnce({
+          data: secondResponse,
+        } as AxiosResponse<EpisodeRickAndMortyDto>)
+        .mockResolvedValueOnce({
+          data: thirdResponse,
+        } as AxiosResponse<EpisodeRickAndMortyDto>);
 
       // Act
       const episodes = await adapter.getAllEpisodes();
 
       // Assert
-      expect(mockedAxios.get).toHaveBeenCalledOnce();
-      expect(mockedAxios.get).toHaveBeenCalledWith(
+      expect(mockedAxios.get).toHaveBeenCalledTimes(3);
+      expect(mockedAxios.get).toHaveBeenNthCalledWith(
+        1,
         'https://rickandmortyapi.com/api/episode',
       );
-      expect(episodes).toEqual(apiResponse.results);
+      expect(mockedAxios.get).toHaveBeenNthCalledWith(
+        2,
+        'https://rickandmortyapi.com/api/episode?page=2',
+      );
+      expect(mockedAxios.get).toHaveBeenNthCalledWith(
+        3,
+        'https://rickandmortyapi.com/api/episode?page=3',
+      );
+      expect(episodes).toEqual([
+        ...firstResponse.results,
+        ...secondResponse.results,
+        ...thirdResponse.results,
+      ]);
     });
 
     it('should propagate errors from Rick and Morty API', async () => {
