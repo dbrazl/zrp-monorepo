@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/yarn-v1.22.22-blue" alt="Yarn Version" />
   <img src="https://img.shields.io/badge/node-v24.21.0-green" alt="Node Version" />
   <img src="https://img.shields.io/badge/license-MIT-black" alt="Node Version" />
+  <img src="https://img.shields.io/badge/coverage-100%25-light" alt="Test Coverage" />
 </p>
 
 ## Description
