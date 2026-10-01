@@ -28,6 +28,7 @@ describe('EpisodesController', () => {
               name: 'Pilot',
               episode: 'Episode 01',
               season: 'Season 01',
+              characters: ['1'],
             },
           ],
         },

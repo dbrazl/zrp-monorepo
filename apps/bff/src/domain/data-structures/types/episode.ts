@@ -3,4 +3,5 @@ export type Episode = {
   name: string;
   episode: string;
   season: string;
+  characters: string[];
 };

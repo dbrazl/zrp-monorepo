@@ -22,12 +22,14 @@ describe('EpisodesToSeasonEpisodesDtoMapper', () => {
           name: 'Pilot',
           episode: 'Episode 01',
           season: 'Season 01',
+          characters: ['1'],
         },
         {
           id: 2,
           name: 'Lawnmower Dog',
           episode: 'Episode 02',
           season: 'Season 01',
+          characters: ['1'],
         },
       ];
 
@@ -50,18 +52,21 @@ describe('EpisodesToSeasonEpisodesDtoMapper', () => {
         name: 'Pilot',
         episode: 'Episode 01',
         season: 'Season 01',
+        characters: ['1'],
       };
       const seasonTwoEpisode: Episode = {
         id: 12,
         name: 'A Rickle in Time',
         episode: 'Episode 01',
         season: 'Season 02',
+        characters: ['1'],
       };
       const anotherSeasonOneEpisode: Episode = {
         id: 2,
         name: 'Lawnmower Dog',
         episode: 'Episode 02',
         season: 'Season 01',
+        characters: ['1'],
       };
 
       // Act

@@ -8,6 +8,7 @@ export class ProviderEpisodeDtoToEpisodeMapper {
       name: episode.name,
       episode: this.getEpisode(episode.episode),
       season: this.getSeason(episode.episode),
+      characters: this.getCharactersIds(episode.characters),
     }));
   }
 
@@ -19,5 +20,14 @@ export class ProviderEpisodeDtoToEpisodeMapper {
   private static getSeason(sentence: string): string {
     const [season, _] = sentence.split('E');
     return `Season ${season.slice(1)}`;
+  }
+
+  private static getCharactersIds(characters: string[]): string[] {
+    return characters.map(
+      character => {
+        const [_, id] = character.split('https://rickandmortyapi.com/api/character/');
+        return id;
+      }
+    );
   }
 }
