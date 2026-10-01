@@ -22,9 +22,7 @@ describe('SitcomController', () => {
 
   describe('(GET) /sitcom/episodes', () => {
     it('should return 200', () => {
-      return request(app.getHttpServer())
-        .get('/sitcom/episodes')
-        .expect(200);
+      return request(app.getHttpServer()).get('/sitcom/episodes').expect(200);
     });
   });
 
@@ -35,12 +33,12 @@ describe('SitcomController', () => {
         .expect(200)
         .expect([
           {
-            "id": 1,
-            "name": "Rick Sanchez",
-            "status": "Alive",
-            "gender": "Male",
-            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-          }
+            id: 1,
+            name: 'Rick Sanchez',
+            status: 'Alive',
+            gender: 'Male',
+            image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+          },
         ]);
     });
 
@@ -50,19 +48,19 @@ describe('SitcomController', () => {
         .expect(200)
         .expect([
           {
-            "id": 1,
-            "name": "Rick Sanchez",
-            "status": "Alive",
-            "gender": "Male",
-            "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+            id: 1,
+            name: 'Rick Sanchez',
+            status: 'Alive',
+            gender: 'Male',
+            image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
           },
           {
-            "id": 2,
-            "name": "Morty Smith",
-            "status": "Alive",
-            "gender": "Male",
-            "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-          }
+            id: 2,
+            name: 'Morty Smith',
+            status: 'Alive',
+            gender: 'Male',
+            image: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+          },
         ]);
     });
 
@@ -71,9 +69,9 @@ describe('SitcomController', () => {
         .get('/sitcom/characters/as')
         .expect(400)
         .expect({
-          "message": "Parameter must have the format \"number,number,...\"",
-          "error": "Bad Request",
-          "statusCode": 400
+          message: 'Parameter must have the format "number,number,..."',
+          error: 'Bad Request',
+          statusCode: 400,
         });
     });
   });

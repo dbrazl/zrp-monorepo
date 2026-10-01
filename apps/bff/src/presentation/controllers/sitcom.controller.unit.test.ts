@@ -118,9 +118,7 @@ describe('SitcomController', () => {
       getCharactersUseCase.execute.mockRejectedValue(error);
 
       // Act and Assert
-      await expect(controller.getCharacters(charactersIds)).rejects.toBe(
-        error,
-      );
+      await expect(controller.getCharacters(charactersIds)).rejects.toBe(error);
       expect(getCharactersUseCase.execute).toHaveBeenCalledOnce();
       expect(getCharactersUseCase.execute).toHaveBeenCalledWith(charactersIds);
     });
