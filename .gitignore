@@ -1,0 +1,30 @@
+# Dependecies
+node_modules
+
+# Build
+dist
+build
+
+# Typescript cache
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+
+# Tests
+coverage
+
+# IDE
+.vscode
+
+# Envs
+.env
+.env.*
+
+# Temp directory
+.temp
+.tmp
+
+# Monorepo
+.turbo

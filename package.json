@@ -1,0 +1,21 @@
+{
+  "name": "zrp-monorepo",
+  "private": true,
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "prod": "turbo prod",
+    "build": "turbo build",
+    "test": "turbo test",
+    "test:cov": "turbo test:cov",
+    "lint": "turbo lint",
+    "format": "turbo format"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "turbo": "^2.11.5"
+  }
+}
