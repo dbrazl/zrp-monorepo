@@ -1,18 +1,18 @@
 import { SeasonEpisodesDto } from '@/application/dtos/outputs/season-episode.dto.js';
-import { EpisodesEndpoints } from '@/infrastructure/http/endpoints/episodes.endpoints.js';
-import { EpisodesController } from '@/presentation/controllers/episodes.controller.js';
+import { SitcomEndpoints } from '@/infrastructure/http/endpoints/sitcom.endpoints.js';
+import { SitcomController } from '@/presentation/controllers/sitcom.controller.js';
 import { Mocked } from 'vitest';
 
-describe('EpisodesEndpoints', () => {
-  let endpoints: EpisodesEndpoints;
-  let controller: Mocked<Pick<EpisodesController, 'getAllEpisodes'>>;
+describe('SitcomEndpoints', () => {
+  let endpoints: SitcomEndpoints;
+  let controller: Mocked<Pick<SitcomController, 'getAllEpisodes'>>;
 
   beforeEach(() => {
     controller = {
       getAllEpisodes: vi.fn(),
     };
-    endpoints = new EpisodesEndpoints(
-      controller as unknown as EpisodesController,
+    endpoints = new SitcomEndpoints(
+      controller as unknown as SitcomController,
     );
   });
 

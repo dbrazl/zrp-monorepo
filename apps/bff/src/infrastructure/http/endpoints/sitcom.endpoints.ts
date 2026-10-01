@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { EpisodesController } from '@/presentation/controllers/episodes.controller.js';
+import { SitcomController } from '@/presentation/controllers/sitcom.controller.js';
 import { SeasonEpisodesDto } from '@/application/dtos/outputs/season-episode.dto.js';
 
-@Controller('/episodes')
-export class EpisodesEndpoints {
-  constructor(private readonly controller: EpisodesController) {}
+@Controller('/sitcom')
+export class SitcomEndpoints {
+  constructor(private readonly controller: SitcomController) { }
 
-  @Get()
+  @Get('/episodes')
   public async getAllEpisodes(): Promise<SeasonEpisodesDto[]> {
     return this.controller.getAllEpisodes();
   }

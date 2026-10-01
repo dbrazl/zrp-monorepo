@@ -31,7 +31,7 @@ describe('Server', () => {
     expect(NestFactory.create).toHaveBeenCalledOnce();
     expect(NestFactory.create).toHaveBeenCalledWith(AppModule);
     expect(app.setGlobalPrefix).toHaveBeenCalledOnce();
-    expect(app.setGlobalPrefix).toHaveBeenCalledWith('api/v0');
+    expect(app.setGlobalPrefix).toHaveBeenCalledWith('api/v1');
     expect(app.listen).toHaveBeenCalledOnce();
     expect(app.listen).toHaveBeenCalledWith(3000);
   });
@@ -48,7 +48,7 @@ describe('Server', () => {
     expect(NestFactory.create).toHaveBeenCalledOnce();
     expect(NestFactory.create).toHaveBeenCalledWith(AppModule);
     expect(app.setGlobalPrefix).toHaveBeenCalledOnce();
-    expect(app.setGlobalPrefix).toHaveBeenCalledWith('api/v0');
+    expect(app.setGlobalPrefix).toHaveBeenCalledWith('api/v1');
     expect(app.listen).toHaveBeenCalledOnce();
     expect(app.listen).toHaveBeenCalledWith('4000');
   });

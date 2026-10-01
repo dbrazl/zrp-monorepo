@@ -1,6 +1,6 @@
 {
   "name": "bff",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "BFF API: Characters from the Rick and Morty episode",
   "author": "Daniel Braz <daniel.braz@vyox.io>",
   "private": true,
