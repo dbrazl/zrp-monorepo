@@ -6,7 +6,7 @@ import { ParseIdsPipe } from '@/infrastructure/http/pipes/parse-ids.pipe.js';
 
 @Controller('/sitcom')
 export class SitcomEndpoints {
-  constructor(private readonly controller: SitcomController) { }
+  constructor(private readonly controller: SitcomController) {}
 
   @Get('/episodes')
   public async getAllEpisodes(): Promise<SeasonEpisodesDto[]> {

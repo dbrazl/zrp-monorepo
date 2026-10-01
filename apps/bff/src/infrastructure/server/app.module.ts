@@ -35,4 +35,4 @@ const buildProvider = <T>(
     buildProvider(GetCharactersUseCase, [AbstractSitcom]),
   ],
 })
-export class AppModule { }
+export class AppModule {}

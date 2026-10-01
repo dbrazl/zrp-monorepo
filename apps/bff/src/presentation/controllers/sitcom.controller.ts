@@ -7,7 +7,7 @@ export class SitcomController {
   constructor(
     private readonly getAllEpisodesUseCase: GetAllEpisodesUseCase,
     private readonly getCharactersUseCase: GetCharactersUseCase,
-  ) { }
+  ) {}
 
   public async getAllEpisodes(): Promise<SeasonEpisodesDto[]> {
     return this.getAllEpisodesUseCase.execute();
