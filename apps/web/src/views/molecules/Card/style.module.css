@@ -1,0 +1,19 @@
+.card {
+  width: 25rem;
+  min-height: 12rem;
+
+  background-color: var(--color-bg-surface);
+  border-radius: var(--border-radius-card);
+  border: 0.1rem solid var(--color-border-default);
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  padding: var(--space-md);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
