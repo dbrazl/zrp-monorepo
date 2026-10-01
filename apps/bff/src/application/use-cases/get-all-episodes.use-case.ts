@@ -4,7 +4,7 @@ import { ProviderEpisodeDtoToEpisodeMapper } from '@/application/mappers/provide
 import { EpisodesToSeasonEpisodesDtoMapper } from '@/application/mappers/episodes-to-season-episodes-dto.mapper.js';
 
 export class GetAllEpisodesUseCase {
-  constructor(private readonly sitcom: AbstractSitcom) { }
+  constructor(private readonly sitcom: AbstractSitcom) {}
 
   public async execute(): Promise<any> {
     const providerEpisodes: ProviderEpisodeDto[] =
