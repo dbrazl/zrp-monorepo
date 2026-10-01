@@ -5,6 +5,7 @@ import { SitcomRickAndMortyAdapter } from '@/infrastructure/adapters/services/si
 import { SitcomEndpoints } from '@/infrastructure/http/endpoints/sitcom.endpoints.js';
 import { SitcomController } from '@/presentation/controllers/sitcom.controller.js';
 import { AppModule } from '@/infrastructure/server/app.module.js';
+import { GetCharactersUseCase } from '@/application/use-cases/get-characters.use-case.js';
 
 describe('AppModule', () => {
   let module: TestingModule;
@@ -24,13 +25,15 @@ describe('AppModule', () => {
     // Act
     const endpoints = module.get(SitcomEndpoints);
     const controller = module.get(SitcomController);
-    const useCase = module.get(GetAllEpisodesUseCase);
+    const useCase1 = module.get(GetAllEpisodesUseCase);
+    const useCase2 = module.get(GetCharactersUseCase);
     const sitcom = module.get(AbstractSitcom);
 
     // Assert
     expect(endpoints).toBeInstanceOf(SitcomEndpoints);
     expect(controller).toBeInstanceOf(SitcomController);
-    expect(useCase).toBeInstanceOf(GetAllEpisodesUseCase);
+    expect(useCase1).toBeInstanceOf(GetAllEpisodesUseCase);
+    expect(useCase2).toBeInstanceOf(GetCharactersUseCase);
     expect(sitcom).toBeInstanceOf(SitcomRickAndMortyAdapter);
   });
 
