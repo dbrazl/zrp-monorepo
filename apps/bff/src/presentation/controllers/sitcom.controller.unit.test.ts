@@ -1,4 +1,5 @@
 import { SeasonEpisodesDto } from '@/application/dtos/outputs/season-episode.dto.js';
+import { GetCharactersUseCase } from '@/application/use-cases/get-characters.use-case.js';
 import { GetAllEpisodesUseCase } from '@/application/use-cases/get-all-episodes.use-case.js';
 import { SitcomController } from '@/presentation/controllers/sitcom.controller.js';
 import { Mocked } from 'vitest';
@@ -6,13 +7,18 @@ import { Mocked } from 'vitest';
 describe('SitcomController', () => {
   let controller: SitcomController;
   let getAllEpisodesUseCase: Mocked<Pick<GetAllEpisodesUseCase, 'execute'>>;
+  let getCharactersUseCase: Mocked<Pick<GetCharactersUseCase, 'execute'>>;
 
   beforeEach(() => {
     getAllEpisodesUseCase = {
       execute: vi.fn(),
     };
+    getCharactersUseCase = {
+      execute: vi.fn(),
+    };
     controller = new SitcomController(
       getAllEpisodesUseCase as unknown as GetAllEpisodesUseCase,
+      getCharactersUseCase as unknown as GetCharactersUseCase,
     );
   });
 

@@ -1,9 +1,10 @@
 import { FactoryProvider, Module, Type } from '@nestjs/common';
-import { GetAllEpisodesUseCase } from '@/application/use-cases/get-all-episodes.use-case.js';
-import { SitcomRickAndMortyAdapter } from '@/infrastructure/adapters/services/sitcom.rick-and-morty.adapter.js';
 import { AbstractSitcom } from '@/application/ports/services/sitcom.port.js';
-import { SitcomEndpoints } from '@/infrastructure/http/endpoints/sitcom.endpoints.js';
+import { GetAllEpisodesUseCase } from '@/application/use-cases/get-all-episodes.use-case.js';
+import { GetCharactersUseCase } from '@/application/use-cases/get-characters.use-case.js';
 import { SitcomController } from '@/presentation/controllers/sitcom.controller.js';
+import { SitcomEndpoints } from '@/infrastructure/http/endpoints/sitcom.endpoints.js';
+import { SitcomRickAndMortyAdapter } from '@/infrastructure/adapters/services/sitcom.rick-and-morty.adapter.js';
 
 const buildProvider = <T>(
   Class: Type<T>,
@@ -20,7 +21,10 @@ const buildProvider = <T>(
   controllers: [SitcomEndpoints],
   providers: [
     // presentation
-    buildProvider(SitcomController, [GetAllEpisodesUseCase]),
+    buildProvider(SitcomController, [
+      GetAllEpisodesUseCase,
+      GetCharactersUseCase,
+    ]),
 
     // application
     {
@@ -28,6 +32,7 @@ const buildProvider = <T>(
       useClass: SitcomRickAndMortyAdapter,
     },
     buildProvider(GetAllEpisodesUseCase, [AbstractSitcom]),
+    buildProvider(GetCharactersUseCase, [AbstractSitcom]),
   ],
 })
 export class AppModule { }
