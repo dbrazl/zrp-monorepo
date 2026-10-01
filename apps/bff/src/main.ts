@@ -1,3 +1,3 @@
-import { Server } from "@/infrastructure/server/app.js";
+import { Server } from '@/infrastructure/server/app.js';
 
 new Server().init();

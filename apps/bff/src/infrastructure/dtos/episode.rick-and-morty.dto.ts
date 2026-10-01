@@ -1,4 +1,4 @@
-import { EpisodeDto } from "@/application/dtos/inputs/episode.dto.js";
+import { EpisodeDto } from '@/application/dtos/inputs/episode.dto.js';
 
 type Info = {
   count: number;
