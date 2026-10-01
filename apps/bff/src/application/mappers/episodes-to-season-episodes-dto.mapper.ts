@@ -6,8 +6,9 @@ export class EpisodesToSeasonEpisodesDtoMapper {
     const groups = Object.groupBy(episodes, ({ season }) => season);
     const entries = Object.entries(groups) as Array<[string, Episode[]]>;
 
-    return entries.map<SeasonEpisodesDto>(
-      ([season, episodes]) => ({ season, episodes: episodes }),
-    );
+    return entries.map<SeasonEpisodesDto>(([season, episodes]) => ({
+      season,
+      episodes: episodes,
+    }));
   }
 }

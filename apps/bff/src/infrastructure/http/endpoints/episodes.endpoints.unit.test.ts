@@ -11,7 +11,9 @@ describe('EpisodesEndpoints', () => {
     controller = {
       getAllEpisodes: vi.fn(),
     };
-    endpoints = new EpisodesEndpoints(controller as unknown as EpisodesController);
+    endpoints = new EpisodesEndpoints(
+      controller as unknown as EpisodesController,
+    );
   });
 
   describe('getAllEpisodes', () => {

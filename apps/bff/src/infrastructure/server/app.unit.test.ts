@@ -11,9 +11,7 @@ describe('Server', () => {
       listen: vi.fn().mockResolvedValue(undefined),
     };
 
-    vi.spyOn(NestFactory, 'create').mockResolvedValue(
-      app as NestApplication,
-    );
+    vi.spyOn(NestFactory, 'create').mockResolvedValue(app as NestApplication);
   });
 
   afterEach(() => {
