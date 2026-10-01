@@ -7,10 +7,9 @@ export class GetAllEpisodesUseCase {
   constructor(private readonly sitcom: AbstractSitcom) { }
 
   public async execute(): Promise<any> {
-    const apiEpisodes: ProviderEpisodeDto[] =
+    const providerEpisodes: ProviderEpisodeDto[] =
       await this.sitcom.getAllEpisodes();
-    const episodes = ProviderEpisodeDtoToEpisodeMapper.map(apiEpisodes);
-    const seasonEpisodes = EpisodesToSeasonEpisodesDtoMapper.map(episodes);
-    return seasonEpisodes;
+    const episodes = ProviderEpisodeDtoToEpisodeMapper.map(providerEpisodes);
+    return EpisodesToSeasonEpisodesDtoMapper.map(episodes);
   }
 }
