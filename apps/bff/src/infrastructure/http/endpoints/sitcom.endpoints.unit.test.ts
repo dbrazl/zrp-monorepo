@@ -11,9 +11,7 @@ describe('SitcomEndpoints', () => {
     controller = {
       getAllEpisodes: vi.fn(),
     };
-    endpoints = new SitcomEndpoints(
-      controller as unknown as SitcomController,
-    );
+    endpoints = new SitcomEndpoints(controller as unknown as SitcomController);
   });
 
   describe('getAllEpisodes', () => {
