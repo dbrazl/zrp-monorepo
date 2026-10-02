@@ -3,7 +3,7 @@ import style from './style.module.css';
 import { Image } from '@/views/atoms/Image';
 
 interface Props {
-  children: ReactNode,
+  children: ReactNode;
 }
 
 export function Layout({ children }: Props) {

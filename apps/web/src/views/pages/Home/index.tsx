@@ -8,9 +8,9 @@ interface Props {
 export function Homepage({ data }: Props) {
   return (
     <>
-      {data.map(({ title, cards }) =>
+      {data.map(({ title, cards }) => (
         <CardList key={title} title={title} data={cards} />
-      )}
+      ))}
     </>
   );
 }

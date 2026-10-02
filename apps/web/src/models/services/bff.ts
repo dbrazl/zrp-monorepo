@@ -8,7 +8,6 @@ export async function getEpisodes(): Promise<SeasonEpisodesDto[]> {
     cache: 'force-cache',
   });
 
-
   if (!response.ok) {
     const error = await response.json().catch(() => null);
     throw new Error(error?.message ?? 'Unknown error - BFF');
