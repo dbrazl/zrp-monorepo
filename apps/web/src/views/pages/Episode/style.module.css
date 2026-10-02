@@ -1,0 +1,25 @@
+.wrapper,
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  gap: var(--space-lg);
+}
+
+.header {
+  gap: var(--space-xs);
+}
+
+.backLink {
+  width: fit-content;
+  color: var(--color-text-brand);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+}
+
+.backLink:hover {
+  color: var(--color-primary-hover);
+}
