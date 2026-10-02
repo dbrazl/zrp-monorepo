@@ -1,9 +1,7 @@
-import { Image } from '@/views/atoms/Image';
-import { Text } from '@/views/atoms/Text';
 import { CardList } from '@/views/organisms/CardList';
 
-import style from './style.module.css';
 import { CardList as CardListType } from '@/models/data-structures/card-list';
+import { Layout } from '@/views/templates/Layout';
 
 interface Props {
   data: CardListType[];
@@ -11,17 +9,10 @@ interface Props {
 
 export function Homepage({ data }: Props) {
   return (
-    <main className={style.content}>
-      <div className={style.imageWrapper}>
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original"
-          width="300px"
-        />
-      </div>
-
+    <Layout>
       {data.map(({ title, cards }) =>
-        <CardList title={title} data={cards} />
+        <CardList key={title} title={title} data={cards} />
       )}
-    </main>
+    </Layout>
   );
 }
