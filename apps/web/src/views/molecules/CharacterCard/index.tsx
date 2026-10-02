@@ -13,7 +13,13 @@ interface Props {
 export function CharacterCard({ name, status, gender, image }: Props) {
   return (
     <article className={style.card}>
-      <Image src={image} alt={name} width="100%" />
+      <Image
+        src={image}
+        alt={name}
+        width="100%"
+        loading="lazy"
+        decoding="async"
+      />
 
       <div className={style.content}>
         <Text tag="h3" size="h5" weight="bold">

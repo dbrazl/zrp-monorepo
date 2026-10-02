@@ -21,6 +21,8 @@ describe('CharacterCard', () => {
 
     expect(image.getAttribute('src')).toBe(character.image);
     expect(image.style.width).toBe('100%');
+    expect(image.getAttribute('loading')).toBe('lazy');
+    expect(image.getAttribute('decoding')).toBe('async');
   });
 
   it('renders the character information inside the styled card', () => {
