@@ -23,7 +23,11 @@ export function CardList({ title, data }: Props) {
       <ul className={style.list}>
         {data.map((item) => (
           <li key={item.id} className={style.item}>
-            <Card label={item.label} upperLabel={item.upperLabel} />
+            <Card
+              label={item.label}
+              upperLabel={item.upperLabel}
+              href={`/episode/${item.id}`}
+            />
           </li>
         ))}
       </ul>
