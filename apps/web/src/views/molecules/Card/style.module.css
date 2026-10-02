@@ -1,6 +1,7 @@
 .card {
   width: 25rem;
   min-height: 12rem;
+  box-sizing: border-box;
 
   background-color: var(--color-bg-surface);
   border-radius: var(--border-radius-card);
@@ -11,6 +12,7 @@
   flex-direction: column;
 
   padding: var(--space-md);
+  text-decoration: none;
 }
 
 .card:hover {
