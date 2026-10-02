@@ -12,7 +12,7 @@ export function Layout({ children }: Props) {
       <div className={style.imageWrapper}>
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original"
-          width="300px"
+          width="250px"
         />
       </div>
 
